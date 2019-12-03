@@ -1,0 +1,68 @@
+# Common configuration.
+AllCops:
+  RubyInterpreters:
+    - ruby
+    - rake
+  DisplayStyleGuide: true
+  ExtraDetails: true
+  TargetRubyVersion: ~
+  Exclude:
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+    - 'bin/**/*'
+
+# and/&& or/|| should not be replaced!
+# http://www.virtuouscode.com/2010/08/02/using-and-and-or-in-ruby/
+Style/AndOr:
+  EnforcedStyle: conditionals
+
+# Modern screens can easily display more than 80 characters.
+Metrics/LineLength:
+  Max: 250
+
+# FrozenStringLiteralComment for Ruby 3 upgrade
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+# Conditional assignments make the code unreadable sometimes.
+Style/ConditionalAssignment:
+  Enabled: false
+
+# Check with yard instead.
+Style/Documentation:
+  Enabled: false
+
+# Consistent hash indentation
+Layout/IndentFirstHashElement:
+  EnforcedStyle: consistent
+
+# Fail is an alias of raise. Avoid aliases, it's more cognitive load for no gain.
+# The argument that fail should be used to abort the program is wrong too,
+# there's Kernel#abort for that.
+Style/SignalException:
+  EnforcedStyle: only_raise
+
+# Symbol Arrays cop enabled (drops support for Ruby 1.9)
+Style/SymbolArray:
+  Enabled: true
+
+# Mixing the styles looks just silly
+Style/HashSyntax:
+  EnforcedStyle: ruby19_no_mixed_keys
+
+# has_key? and has_value? are far more readable than key? and value?
+Style/PreferredHashMethods:
+  Enabled: false
+
+# Align hashes like a table
+Layout/AlignHash:
+  EnforcedColonStyle: table
+  EnforcedHashRocketStyle: table
+
+# Align arguments with the same indentation level
+Layout/AlignArguments:
+  EnforcedStyle: with_fixed_indentation
+
+# Allow braces around hash parameters, context dependent
+Style/BracesAroundHashParameters:
+  EnforcedStyle: context_dependent
