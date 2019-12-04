@@ -33,3 +33,4 @@
 coverage
 test-report.xml
 .scannerwork
+rubocop.json
