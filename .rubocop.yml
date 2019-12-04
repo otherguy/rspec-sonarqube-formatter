@@ -40,6 +40,10 @@ Style/Documentation:
 Layout/FirstHashElementIndentation:
   EnforcedStyle: consistent
 
+# Consistent array indentation
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
 # Fail is an alias of raise. Avoid aliases, it's more cognitive load for no gain.
 # The argument that fail should be used to abort the program is wrong too,
 # there's Kernel#abort for that.

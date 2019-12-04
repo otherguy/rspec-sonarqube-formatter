@@ -12,8 +12,8 @@ Gem::Specification.new do |spec|
   spec.email         = ['alex@otherguy.uo']
 
   spec.metadata = {
-    'bug_tracker_uri'   => 'https://github.com/otherguy/rspec-sonarqube-formatter/issues',
-    'source_code_uri'   => 'https://github.com/otherguy/rspec-sonarqube-formatter',
+    'bug_tracker_uri' => 'https://github.com/otherguy/rspec-sonarqube-formatter/issues',
+    'source_code_uri' => 'https://github.com/otherguy/rspec-sonarqube-formatter'
   }
 
   spec.summary       = 'Generic test data formatter for SonarQube'

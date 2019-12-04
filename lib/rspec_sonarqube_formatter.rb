@@ -38,7 +38,7 @@ class RspecSonarqubeFormatter
     @output.puts '    </testCase>'
   end
 
-  def example_passed(notification)
+  def example_passed(_notification)
     @output.puts '    </testCase>'
   end
 
@@ -51,4 +51,3 @@ class RspecSonarqubeFormatter
     input.to_s.gsub(/\e\[\d;*\d*m/, '').tr('"', "'")
   end
 end
-
