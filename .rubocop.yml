@@ -8,7 +8,6 @@ AllCops:
   TargetRubyVersion: ~
   Exclude:
     - 'vendor/**/*'
-    - 'tmp/**/*'
     - 'bin/**/*'
 
 # and/&& or/|| should not be replaced!
@@ -19,6 +18,11 @@ Style/AndOr:
 # Modern screens can easily display more than 80 characters.
 Metrics/LineLength:
   Max: 250
+
+Metrics/BlockLength:
+  Exclude:
+    - '**/*.gemspec'
+    - 'spec/**/*_spec.rb'
 
 # FrozenStringLiteralComment for Ruby 3 upgrade
 Style/FrozenStringLiteralComment:
