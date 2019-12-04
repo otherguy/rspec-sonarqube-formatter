@@ -1,11 +1,33 @@
 # frozen_string_literal: true
 
-require 'bundler/setup'
-require 'rspec/rspec_sonarqube_formatter'
+require 'simplecov'
+require 'simplecov-json'
+
+# Generate HTML and JSON reports
+SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter.new([
+  SimpleCov::Formatter::HTMLFormatter,
+  SimpleCov::Formatter::JSONFormatter
+])
+
+SimpleCov.start do
+  # ignore common ruby files in test coverage
+  add_filter 'Gemfile'
+end
+
+$LOAD_PATH.unshift(File.dirname(__FILE__))
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+require 'rspec/rspec_sonarqube_formatter/formatter'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = '.rspec_status'
+
+  # This allows you to limit a spec run to individual examples or groups
+  # you care about by tagging them with `:focus` metadata.
+  config.filter_run_when_matching :focus
+  config.run_all_when_everything_filtered = true
+
+  config.filter_run_excluding :exclude
 
   # Disable RSpec exposing methods globally on `Module` and `main`
   config.disable_monkey_patching!
@@ -13,4 +35,7 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  # Configure the test run order.
+  config.order = :defined # :random
 end

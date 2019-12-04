@@ -9,6 +9,7 @@ module RSpec
         :start,
         :stop,
         :example_group_started,
+        :example_started,
         :example_failed,
         :example_passed,
         :example_pending,
@@ -26,7 +27,7 @@ module RSpec
       end
 
       def stop(_notification)
-        @output.puts '  </file>'
+        @output.puts '  </file>' if @current_file != ''
         @output.puts '</testExecutions>'
       end
 
@@ -38,24 +39,28 @@ module RSpec
         @current_file = notification.group.metadata[:file_path]
       end
 
+      def example_started(_notification)
+        #
+      end
+
       def example_failed(notification)
-        @output.puts "    <testCase name=\"#{clean_string(notification.example.description)}\" duration=\"#{notification.example.execution_result.run_time.in_milliseconds.round}\">"
-        @output.puts "      <failure message=\"#{notification.exception}\" stacktrace=\"#{notification.example.location}\"/>"
+        @output.puts "    <testCase name=\"#{clean_string(notification.example.description)}\" duration=\"#{(notification.example.execution_result.run_time.to_f * 1000).round}\">"
+        @output.puts "      <failure message=\"#{notification.exception}\" stacktrace=\"#{notification.example.location}\" />"
         @output.puts '    </testCase>'
       end
 
       def example_passed(notification)
-        @output.puts "    <testCase name=\"#{clean_string(notification.example.description)}\" duration=\"#{notification.example.execution_result.run_time.in_milliseconds.round}\"/>"
+        @output.puts "    <testCase name=\"#{clean_string(notification.example.description)}\" duration=\"#{(notification.example.execution_result.run_time.to_f * 1000).round}\" />"
       end
 
       def example_pending(notification)
-        @output.puts "    <testCase name=\"#{clean_string(notification.example.description)}\" duration=\"#{notification.example.execution_result.run_time.in_milliseconds.round}\">"
-        @output.puts "      <skipped message=\"#{clean_string(notification.example.execution_result.pending_message)}\"/>"
+        @output.puts "    <testCase name=\"#{clean_string(notification.example.description)}\" duration=\"#{(notification.example.execution_result.run_time.to_f * 1000).round}\">"
+        @output.puts "      <skipped message=\"#{clean_string(notification.example.execution_result.pending_message)}\" />"
         @output.puts '    </testCase>'
       end
 
       def clean_string(input)
-        input.gsub(/\e\[\d;*\d*m/, '').tr('"', "'")
+        input.to_s.gsub(/\e\[\d;*\d*m/, '').tr('"', "'")
       end
     end
   end

@@ -13,19 +13,17 @@ Gem::Specification.new do |spec|
   spec.summary       = 'Generic test data formatter for SonarQube'
   spec.description   = 'Generates an report that the SonarQube Generic Test Data parser understands'
   spec.homepage      = 'https://github.com/otherguy/rspec-sonarqube-formatter'
+  spec.license       = 'MIT'
 
+  spec.files = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(spec)/}) }
 
-  spec.files = `git ls-files -z`.split("\x0").reject do |f|
-    f.match(%r{^(spec)/})
-  end
-
-  spec.bindir        = 'bin'
-  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  spec.bindir        = 'exe'
+  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
+  spec.add_dependency 'rspec', '>= 3.0.0'
   spec.add_development_dependency 'bundler', '~> 2.0.2'
   spec.add_development_dependency 'rake', '~> 13.0.1'
-  spec.add_development_dependency 'rspec', '~> 3.9.0'
   spec.add_development_dependency 'simplecov', '~> 0.17.1'
   spec.add_development_dependency 'simplecov-json', '~> 0.2.0'
 end
