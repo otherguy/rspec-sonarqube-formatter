@@ -23,7 +23,7 @@ class RspecSonarqubeFormatter
   def example_group_started(notification)
     return if notification.group.metadata[:file_path] == @current_file
 
-    @output.puts '  </file>' if @current_file != ''
+    @output.puts "  </file>" if @current_file != ''
     @output.puts "  <file path=\"#{notification.group.metadata[:file_path]}\">"
 
     @current_file = notification.group.metadata[:file_path]
