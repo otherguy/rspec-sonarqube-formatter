@@ -32,3 +32,4 @@
 .rspec_status
 coverage
 test-report.xml
+.scannerwork
