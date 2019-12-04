@@ -9,14 +9,13 @@ SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::JSONFormatter
 ])
 
+# Code coverage
 SimpleCov.start do
-  # ignore common ruby files in test coverage
-  add_filter 'Gemfile'
+  track_files 'lib/**/*.rb'
 end
 
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-require 'rspec/rspec_sonarqube_formatter/formatter'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -26,8 +25,10 @@ RSpec.configure do |config|
   # you care about by tagging them with `:focus` metadata.
   config.filter_run_when_matching :focus
   config.run_all_when_everything_filtered = true
-
   config.filter_run_excluding :exclude
+
+  # Raise errors for deprecated interfaces
+  # config.raise_errors_for_deprecations!
 
   # Disable RSpec exposing methods globally on `Module` and `main`
   config.disable_monkey_patching!

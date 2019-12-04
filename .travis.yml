@@ -1,11 +1,15 @@
 language: ruby
 os: linux
 rvm:
+  - 1.9.3
+  - 2.0.0
   - 2.4.9
   - 2.5.7
   - 2.6.5
+gemfile:
+  - Gemfile
 before_install: gem install bundler -v 2.0.2
-script: 
+script:
   - bundle exec rake spec
   - sonar-scanner
 addons:

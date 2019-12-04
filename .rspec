@@ -1,3 +1,5 @@
 --require spec_helper
 --color
+--format RspecSonarqubeFormatter
+--out test-report.xml
 --format documentation

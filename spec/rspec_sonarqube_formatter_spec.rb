@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
+require 'rspec_sonarqube_formatter'
+
 RSpec.describe RspecSonarqubeFormatter, type: :helper do
   before :each do
     @output = StringIO.new
 
-    @formatter = RSpec::RspecSonarqubeFormatter::Formatter.new(@output)
+    @formatter = RspecSonarqubeFormatter.new(@output)
     @example   = RSpec::Core::ExampleGroup.describe.example_group 'anonymous group', :exclude
 
     @notification = RSpec::Core::Notifications::GroupNotification.new @example.example
@@ -14,16 +16,8 @@ RSpec.describe RspecSonarqubeFormatter, type: :helper do
     @formatter.example_started(@example)
   end
 
-  it 'has a version number' do
-    expect(described_class::VERSION).not_to be nil
-  end
-
-  it 'has a version number that matches semver' do
-    expect(described_class::VERSION).to match /^(?<major>0|[1-9]\d*)\.(?<minor>0|[1-9]\d*)\.(?<patch>0|[1-9]\d*)(?:-(?<prerelease>(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+(?<buildmetadata>[0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/
-  end
-
   it 'loads the RspecSonarqubeFormatter class' do
-    expect(RSpec::RspecSonarqubeFormatter::Formatter.name).to eq('RSpec::RspecSonarqubeFormatter::Formatter')
+    expect(RspecSonarqubeFormatter.name).to eq('RspecSonarqubeFormatter')
   end
 
   describe 'passing example' do
@@ -54,7 +48,7 @@ RSpec.describe RspecSonarqubeFormatter, type: :helper do
     end
 
     it 'is expected to contain a testCase' do
-      expect(@output).to match '<testCase name=".*" duration="[\d]+" />'
+      expect(@output).to match '<testCase name=".*" duration="[\d]+">'
     end
 
     it 'is expected to end the file section' do

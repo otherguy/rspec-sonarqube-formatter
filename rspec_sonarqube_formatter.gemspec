@@ -2,13 +2,19 @@
 
 lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'rspec_sonarqube_formatter/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'rspec_sonarqube_formatter'
-  spec.version       = RspecSonarqubeFormatter::VERSION
+  spec.version       = '1.0.0'
+  spec.platform      = Gem::Platform::RUBY
+
   spec.authors       = ['Alexander Graf']
   spec.email         = ['alex@otherguy.uo']
+
+  spec.metadata = {
+    'bug_tracker_uri'   => 'https://github.com/otherguy/rspec-sonarqube-formatter/issues',
+    'source_code_uri'   => 'https://github.com/otherguy/rspec-sonarqube-formatter',
+  }
 
   spec.summary       = 'Generic test data formatter for SonarQube'
   spec.description   = 'Generates an report that the SonarQube Generic Test Data parser understands'
