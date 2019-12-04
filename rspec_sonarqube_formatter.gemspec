@@ -31,6 +31,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'bundler', '~> 2.0.2'
   spec.add_development_dependency 'rake', '~> 13.0.1'
   spec.add_development_dependency 'rubocop', '~> 0.77.0'
+  spec.add_development_dependency 'coveralls'
   spec.add_development_dependency 'simplecov', '~> 0.17.1'
   spec.add_development_dependency 'simplecov-json', '~> 0.2.0'
 end
