@@ -33,7 +33,7 @@ Style/Documentation:
   Enabled: false
 
 # Consistent hash indentation
-Layout/IndentFirstHashElement:
+Layout/FirstHashElementIndentation:
   EnforcedStyle: consistent
 
 # Fail is an alias of raise. Avoid aliases, it's more cognitive load for no gain.
@@ -55,12 +55,12 @@ Style/PreferredHashMethods:
   Enabled: false
 
 # Align hashes like a table
-Layout/AlignHash:
+Layout/HashAlignment:
   EnforcedColonStyle: table
   EnforcedHashRocketStyle: table
 
 # Align arguments with the same indentation level
-Layout/AlignArguments:
+Layout/ArgumentAlignment:
   EnforcedStyle: with_fixed_indentation
 
 # Allow braces around hash parameters, context dependent
