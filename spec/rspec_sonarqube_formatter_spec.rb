@@ -108,7 +108,6 @@ RSpec.describe RspecSonarqubeFormatter, type: :helper do
     end
   end
 
-
   describe 'pending example' do
     before :each do
       @notification = RSpec::Core::Notifications::PendingExampleFailedAsExpectedNotification.new @example.example

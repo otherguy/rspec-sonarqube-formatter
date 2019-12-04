@@ -5,4 +5,11 @@ rvm:
   - 2.5.7
   - 2.6.5
 before_install: gem install bundler -v 2.0.2
-script: bundle exec rake spec
+script: 
+  - bundle exec rake spec
+  - sonar-scanner
+addons:
+  sonarcloud:
+    organization: "otherguy"
+    token:
+      secure: o3T/a0jNWWHRQhsbH2NvdFYbC8fugnWwQD1QUdMR/s2/GzPRTud6eQlBP15bxY3kedEtwXx/368A5urO/ciIQf+OFiG9/fMdLU2PUgZgX8y8OMuD7w3nVHTSbPTj4ZOytMWZwGDThms/yCfYlnc7LaiDJTVWDSMXGU1UCpwyTkxAnr/4rXqK6YMAR4eqFLyzNw2b0JC0C/PRbIU7So4hfzqe4O0DC0VfVmrqRjlp6sfX5/KHPPXSgW/CETpR6JrS4SV7xVjW8nsBXHUFWGl1RCLSUf8CT58kLCO0Vl+OAqcUbTGQJVMlLSYc5YgdFqtacCXw5eJUIb+sCot91IyV2uz98tfhWd8BXolifVUEhsdQd17GpaKHUlT+if28TUUgUMVbLEXoUqwHtfFY6dHjui2oRElFpRYyOlqedcgM1MLzvnK8DGTRWuhuoYZmVUkDsE28vauGP/UWgykLrMc6wFwPW042NMrXzEiifLmXihU+lW4eFYOW0wWP9sKjJxsbuVw4WGbRuhHLjuXwGXOOqoe30nxeNpKcZetSETDjexpYeOTyj205vYuTUPLsrOXU5oEduBmnN3ZNcAY5WoqcTqp8CR++eIEVNq9oqyLrM9t/MRCLv2ndF6VRsJLJ0cD5KGoYj3clJN9R8O6yHpksHO7GIiUGsuzCcMkL9dIWcZ4=
