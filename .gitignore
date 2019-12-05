@@ -1,6 +1,4 @@
 ### macOS ###
-
-# General
 .DS_Store
 .AppleDouble
 .LSOverride
@@ -17,16 +15,15 @@
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
 
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-
-### VisualStudioCode Patch ###
-# Ignore all local history of files
 .history
+
 
 ### Application ###
 .rspec_status
@@ -36,3 +33,5 @@ test-report.xml
 rubocop.json
 .idea
 *.gem
+.bundle/
+cc-test-reporter
