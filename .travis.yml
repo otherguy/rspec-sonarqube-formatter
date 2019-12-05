@@ -2,6 +2,12 @@ language: ruby
 os: linux
 cache: bundler
 
+env:
+  global:
+    # This is a write-only ID that can only post test reports.
+    - CC_TEST_REPORTER_ID=fe29c7a08645a8e6de55dd7d55b2ae357d92ae9ee154874c900b5a6faa3ec8ec
+    - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi)
+
 rvm:
   - 2.3
   - 2.4
@@ -12,11 +18,17 @@ before_install: gem install bundler
 
 install:
   - bundle install --retry=3
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 
 script:
   - bundle exec rake spec
   - bundle exec rubocop --format progress --format json --out rubocop.json
   - sonar-scanner
+
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
 addons:
   sonarcloud:
