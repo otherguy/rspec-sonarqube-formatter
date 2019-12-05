@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rspec-sonarqube-formatter (0.0.1)
+    rspec-sonarqube-formatter (1.0.0.pre.pre)
       rspec (~> 3.0)
 
 GEM
