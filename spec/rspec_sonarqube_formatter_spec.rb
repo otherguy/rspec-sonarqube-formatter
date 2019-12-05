@@ -48,7 +48,7 @@ RSpec.describe RspecSonarqubeFormatter, type: :helper do
     end
 
     it 'is expected to contain a testCase' do
-      expect(@output).to match '<testCase name=".*" duration="[\d]+">'
+      expect(@output).to match '<testCase name=".*" duration="[\d]+" />'
     end
 
     it 'is expected to end the file section' do

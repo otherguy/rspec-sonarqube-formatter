@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'rspec-sonarqube-formatter'
 
   # rubocop:disable Gemspec/DuplicatedAssignment
-  spec.version       = '1.0.0-pre'
+  spec.version       = '1.0.0'
   spec.version       = ENV.fetch('TRAVIS_TAG') { spec.version }.to_s if ENV['TRAVIS']
   # rubocop:enable Gemspec/DuplicatedAssignment
 

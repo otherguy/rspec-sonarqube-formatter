@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class RspecSonarqubeFormatter
-  ::RSpec::Core::Formatters.register self, :example_group_started, :example_started, :example_passed,
-    :example_pending, :example_failed, :start, :stop, :exam
+  ::RSpec::Core::Formatters.register self,
+    :start, :stop, :example_group_started, :example_started, :example_passed, :example_failed, :example_pending
 
   def initialize(output)
     @output             = output
@@ -29,25 +29,31 @@ class RspecSonarqubeFormatter
     @current_file = notification.group.metadata[:file_path]
   end
 
-  def example_started(notification)
-    @output.puts "    <testCase name=\"#{clean_string(notification.example.description)}\" duration=\"#{(notification.example.execution_result.run_time.to_f * 1000).round}\">"
+  def example_started(_notification)
+    @output.puts ''
+  end
+
+  def example_passed(notification)
+    @output.puts "    <testCase name=\"#{clean_string(notification.example.description)}\" duration=\"#{duration(notification.example)}\" />"
   end
 
   def example_failed(notification)
+    @output.puts "    <testCase name=\"#{clean_string(notification.example.description)}\" duration=\"#{duration(notification.example)}\">"
     @output.puts "      <failure message=\"#{notification.exception}\" stacktrace=\"#{notification.example.location}\" />"
     @output.puts '    </testCase>'
   end
 
-  def example_passed(_notification)
-    @output.puts '    </testCase>'
-  end
-
   def example_pending(notification)
+    @output.puts "    <testCase name=\"#{clean_string(notification.example.description)}\" duration=\"#{duration(notification.example)}\">"
     @output.puts "      <skipped message=\"#{clean_string(notification.example.execution_result.pending_message)}\" />"
     @output.puts '    </testCase>'
   end
 
   def clean_string(input)
     input.to_s.gsub(/\e\[\d;*\d*m/, '').tr('"', "'")
+  end
+
+  def duration(example)
+    (example.execution_result.run_time.to_f * 1000).round
   end
 end
