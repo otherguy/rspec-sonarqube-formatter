@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   }
 
   spec.summary       = 'Generic test data formatter for SonarQube'
-  spec.description   = 'Generates an report that the SonarQube Generic Test Data parser understands'
+  spec.description   = 'Generates an XML report that the SonarQube Generic Test Data parser can understand'
   spec.homepage      = 'https://github.com/otherguy/rspec-sonarqube-formatter'
   spec.license       = 'MIT'
 
