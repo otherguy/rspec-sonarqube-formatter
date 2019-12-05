@@ -30,7 +30,7 @@ class RspecSonarqubeFormatter
   end
 
   def example_started(_notification)
-    @output.puts ''
+    # Do nothing
   end
 
   def example_passed(notification)

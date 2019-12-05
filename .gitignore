@@ -35,3 +35,4 @@ rubocop.json
 *.gem
 .bundle/
 cc-test-reporter
+pkg/*
