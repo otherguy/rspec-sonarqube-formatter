@@ -4,10 +4,14 @@ lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
-  spec.name          = 'rspec_sonarqube_formatter'
-  spec.version       = '1.0.0'
-  spec.platform      = Gem::Platform::RUBY
+  spec.name          = 'rspec-sonarqube-formatter'
 
+  # rubocop:disable Gemspec/DuplicatedAssignment
+  spec.version       = '0.0.1'
+  spec.version       = "#{spec.version}-alpha-#{ENV['TRAVIS_BUILD_NUMBER']}" if ENV['TRAVIS']
+  # rubocop:enable Gemspec/DuplicatedAssignment
+
+  spec.platform      = Gem::Platform::RUBY
   spec.authors       = ['Alexander Graf']
   spec.email         = ['alex@otherguy.uo']
 
@@ -27,11 +31,11 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'rspec', '>= 3.0.0'
+  spec.add_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'bundler', '~> 2.0.2'
-  spec.add_development_dependency 'coveralls'
+  spec.add_development_dependency 'coveralls', '~> 0.8.23'
   spec.add_development_dependency 'rake', '~> 13.0.1'
   spec.add_development_dependency 'rubocop', '~> 0.77.0'
-  spec.add_development_dependency 'simplecov', '~> 0.17.1'
+  spec.add_development_dependency 'simplecov', '~> 0.16.1'
   spec.add_development_dependency 'simplecov-json', '~> 0.2.0'
 end

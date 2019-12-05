@@ -1,18 +1,24 @@
-# RSpec Sonarqube Formatter
+# RSpec SonarQube Formatter
 
-Shields:
-![Gem](https://img.shields.io/gem/v/rspec-sonarqube-formatter)
-![Gem](https://img.shields.io/gem/dt/rspec-sonarqube-formatter)
-![GitHub issues](https://img.shields.io/github/issues/otherguy/rspec-sonarqube-formatter)
-![Travis (.com)](https://img.shields.io/travis/com/otherguy/rspec-sonarqube-formatter)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=otherguy_rspec-sonarqube-formatter&metric=alert_status)](https://sonarcloud.io/dashboard?id=otherguy_rspec-sonarqube-formatter)
-![Coveralls](https://img.shields.io/coveralls/github/otherguy/rspec-sonarqube-formatter)
-![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/otherguy/rspec-sonarqube-formatter)
-![GitHub](https://img.shields.io/github/license/otherguy/rspec-sonarqube-formatter)
-![Mergify](https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges/otherguy/rspec-sonarqube-formatter&style=flat)
+Rspec formatter to generates an xml file for SonarQube, using the generec-test-data format, 
 
-https://codeclimate.com/github/otherguy/rspec-sonarqube-formatter
-https://sonarcloud.io/dashboard?id=otherguy_rspec-sonarqube-formatter
+[![Gem Version](https://img.shields.io/gem/v/rspec-sonarqube-formatter)][rubygems]
+[![Downloads](https://img.shields.io/gem/dt/rspec-sonarqube-formatter)][rubygems]
+[![GitHub issues](https://img.shields.io/github/issues/otherguy/rspec-sonarqube-formatter)][issues]
+[![Travis](https://img.shields.io/travis/com/otherguy/rspec-sonarqube-formatter)][travis]
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=otherguy_rspec-sonarqube-formatter&metric=alert_status)][sonarqube]
+[![Coveralls](https://img.shields.io/coveralls/github/otherguy/rspec-sonarqube-formatter)][coveralls]
+[![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/otherguy/rspec-sonarqube-formatter)][codeclimate]
+[![License](https://img.shields.io/github/license/otherguy/rspec-sonarqube-formatter)][license]
+
+[rubygems]: https://rubygems.org/gems/rspec-sonarqube-formatter
+[issues]: https://github.com/otherguy/rspec-sonarqube-formatter/issues
+[travis]: https://travis-ci.com/otherguy/rspec-sonarqube-formatter
+[coveralls]: https://coveralls.io/github/otherguy/rspec-sonarqube-formatter
+[codeclimate]: https://codeclimate.com/github/otherguy/rspec-sonarqube-formatter
+[sonarqube]: https://sonarcloud.io/dashboard?id=otherguy_rspec-sonarqube-formatter
+[license]: https://github.com/otherguy/rspec-sonarqube-formatter/blob/master/LICENSE.md
+
 
 ## Development
 

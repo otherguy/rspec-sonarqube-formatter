@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class RspecSonarqubeFormatter
-  RSpec::Core::Formatters.register self, :example_group_started, :example_started, :example_passed,
+  ::RSpec::Core::Formatters.register self, :example_group_started, :example_started, :example_passed,
     :example_pending, :example_failed, :start, :stop, :exam
 
   def initialize(output)
