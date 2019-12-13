@@ -42,8 +42,8 @@ notifications:
 
 deploy:
   - provider: rubygems
-    skip_cleanup: true
-    api_key:
+    cleanup: false
+    token:
       secure: fThOZtHGWfz6JCETpxPtY5/Q/2JwuRMPdtnkUH+591p8ymLfCPW/1UlmJiETvKVVScFh5tLnCKp7bFPhi3/U3Ld1A1c/sG7A+ibpi4kWegiz4V99aAl8Rn/GxL/Bfzx/JTFKXtdgVig5m2vvhSiOHnN/8go18YUXsMKdC9s9pRQBNnv+reVUgiGj88W0NjhtPrBGNtKqk/eekGdjEvdwAYlAAgQ6ZeXgepKtbA3ZU1EwvMsl7RyjLtJ+Bk/nafFWYASbt9RDo2quGYEpSdviIPT8T4ssYT+GNbxOoJ0DVPF/xPreruue58Xa2bvClCU/kb4JUXKIrVbPT4sYJTKZl8LQ/AkjO6NAvsc+MM5wjcJMDLiSgLNa3FMsO58mLYpwS+UG8n09qHD9kSaILyWhhg3A4uXODuL5y942tvEkMt0ZmkVl1i2Ey/5RD7AfFCqz2j+/iJdbUsMBZtZ1iT5h4/W3FGDd5neXTgZJ5qVsxxbt0GyPkg9Du3hgPYpUX9T/CX4FcAKJiilhayw+NDR4wO3Q9ILL+JZwojpNUv0A4EKTDzJ6xeU0iEqyKTtYqiWvHdgCjBXk1RLmLugmAt3391Rjty5wgIiawoTGvNv26tOPk94Iic6Xo4P9vZRtu3YDjXZ4JofFRGOhUazWgVfH9JRYHsT7XOBOPuOMx8aK83w=
     gem: rspec-sonarqube-formatter
     on:
@@ -54,7 +54,7 @@ deploy:
     api_key:
       secure: Qfkej2Tk4iyZS/yzL+g1TMHi+K+8TSCUtYENW3w9daR+0iejicwVHTT01wQT77zUaJ+n5i5B6lXfYIjqA7MivBHf27qJy+6cf4iFZB0kU7KGNv9bXZlXW9T5GZQ8jx1QsIefdqNqmu7Eqjuq9EhrhqrR3dfAeaBXdMX2HiIOEYzhjckJBtGrwPB96SNGTbSnVwwHa8+aHe58DrAvuh6WYBGu8NLJYKpyj8LY7iOBpm15+nx0Lkofj8p0jtUWXCFMOEoWJICY7+Rzqf9badTQJVvcIyJsr9I5GsOkrzrW07DrCsDC1EZHYep2LDjdI5LVU3i8uIfY6MBhvRzATrka7Ho1HDKxTSSLuK7vUxERlb/uf19MYbcV9SniMRwspds2/r+W6YRwM9Yrk0sfo6ZVg3qXs7Ll3jbs7nUjBq8yVIIXLVgwQ7JgmnPgsMQ05PcSc1GZG5rJ+sgbapbTLhss3ygsXPpJg7Tfu3JzJ6zAHrPc/I3HWVvYV2mz7rqhKiXVHKEDN9yULDGIBKgrNZmvyinJhPQay1a1h/jLfX5hp0wSjUeiyZKmdKYOu/6a4myrq+GHaUwtGyWcAk1DzX0d1sMptSKKmj56vjAiLZtGawVazkMdYzMZ5szOCI2wz1ps2A+3h28TL8UOSGCjZgx3dyuXBY9QHweEAJqDy7FlFN8=
     file: "*.gem"
-    skip_cleanup: true
+    cleanup: false
     on:
       tags: true
       rvm: 2.6
