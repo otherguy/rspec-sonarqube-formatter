@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'htmlentities'
 
 class RspecSonarqubeFormatter
   ::RSpec::Core::Formatters.register self,
