@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'htmlentities'
+
 class RspecSonarqubeFormatter
   ::RSpec::Core::Formatters.register self,
     :start, :stop, :example_group_started, :example_started, :example_passed, :example_failed, :example_pending
@@ -39,7 +41,7 @@ class RspecSonarqubeFormatter
 
   def example_failed(notification)
     @output.puts "    <testCase name=\"#{clean_string(notification.example.description)}\" duration=\"#{duration(notification.example)}\">"
-    @output.puts "      <failure message=\"#{notification.exception}\" stacktrace=\"#{notification.example.location}\" />"
+    @output.puts "      <failure message=\"#{clean_string(notification.exception)}\" stacktrace=\"#{clean_string(notification.example.location)}\" />"
     @output.puts '    </testCase>'
   end
 
@@ -50,7 +52,7 @@ class RspecSonarqubeFormatter
   end
 
   def clean_string(input)
-    input.to_s.gsub(/\e\[\d;*\d*m/, '').tr('"', "'")
+    HTMLEntities.new.encode input.to_s.gsub(/\e\[\d;*\d*m/, '').tr('"', "'")
   end
 
   def duration(example)
