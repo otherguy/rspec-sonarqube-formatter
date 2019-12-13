@@ -43,7 +43,7 @@ notifications:
 deploy:
   - provider: rubygems
     cleanup: false
-    token:
+    api_key:
       secure: fThOZtHGWfz6JCETpxPtY5/Q/2JwuRMPdtnkUH+591p8ymLfCPW/1UlmJiETvKVVScFh5tLnCKp7bFPhi3/U3Ld1A1c/sG7A+ibpi4kWegiz4V99aAl8Rn/GxL/Bfzx/JTFKXtdgVig5m2vvhSiOHnN/8go18YUXsMKdC9s9pRQBNnv+reVUgiGj88W0NjhtPrBGNtKqk/eekGdjEvdwAYlAAgQ6ZeXgepKtbA3ZU1EwvMsl7RyjLtJ+Bk/nafFWYASbt9RDo2quGYEpSdviIPT8T4ssYT+GNbxOoJ0DVPF/xPreruue58Xa2bvClCU/kb4JUXKIrVbPT4sYJTKZl8LQ/AkjO6NAvsc+MM5wjcJMDLiSgLNa3FMsO58mLYpwS+UG8n09qHD9kSaILyWhhg3A4uXODuL5y942tvEkMt0ZmkVl1i2Ey/5RD7AfFCqz2j+/iJdbUsMBZtZ1iT5h4/W3FGDd5neXTgZJ5qVsxxbt0GyPkg9Du3hgPYpUX9T/CX4FcAKJiilhayw+NDR4wO3Q9ILL+JZwojpNUv0A4EKTDzJ6xeU0iEqyKTtYqiWvHdgCjBXk1RLmLugmAt3391Rjty5wgIiawoTGvNv26tOPk94Iic6Xo4P9vZRtu3YDjXZ4JofFRGOhUazWgVfH9JRYHsT7XOBOPuOMx8aK83w=
     gem: rspec-sonarqube-formatter
     on:
