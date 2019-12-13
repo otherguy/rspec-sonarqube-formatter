@@ -5,7 +5,7 @@ AllCops:
     - rake
   DisplayStyleGuide: true
   ExtraDetails: true
-  TargetRubyVersion: ~
+  TargetRubyVersion: >= 2.3.0
   Exclude:
     - 'vendor/**/*'
     - 'bin/**/*'
