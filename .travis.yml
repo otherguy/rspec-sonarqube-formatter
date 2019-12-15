@@ -9,7 +9,6 @@ env:
     - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi)
 
 rvm:
-  - 2.3
   - 2.4
   - 2.5
   - 2.6
