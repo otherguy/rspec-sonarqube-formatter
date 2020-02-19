@@ -70,7 +70,3 @@ Layout/HashAlignment:
 # Align arguments with the same indentation level
 Layout/ArgumentAlignment:
   EnforcedStyle: with_fixed_indentation
-
-# Allow braces around hash parameters, context dependent
-Style/BracesAroundHashParameters:
-  EnforcedStyle: context_dependent
