@@ -53,7 +53,7 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.2)
-    simplecov-json (0.2)
+    simplecov-json (0.2.1)
       json
       simplecov
     term-ansicolor (1.7.1)
