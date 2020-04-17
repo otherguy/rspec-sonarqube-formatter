@@ -21,7 +21,7 @@ GEM
     jaro_winkler (1.5.4)
     json (2.3.0)
     parallel (1.19.1)
-    parser (2.7.0.5)
+    parser (2.7.1.1)
       ast (~> 2.4.0)
     rainbow (3.0.0)
     rake (13.0.1)
@@ -39,7 +39,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
     rspec-support (3.9.0)
-    rubocop (0.81.0)
+    rubocop (0.82.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
       parser (>= 2.7.0.1)
@@ -70,7 +70,7 @@ DEPENDENCIES
   coveralls (~> 0.8.23)
   rake (~> 13.0.1)
   rspec-sonarqube-formatter!
-  rubocop (~> 0.81.0)
+  rubocop (~> 0.82.0)
   simplecov (~> 0.16.1)
   simplecov-json (~> 0.2.0)
 
