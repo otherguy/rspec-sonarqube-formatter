@@ -1,5 +1,6 @@
 # Common configuration.
 AllCops:
+  NewCops: enable
   RubyInterpreters:
     - ruby
     - rake
@@ -9,6 +10,7 @@ AllCops:
   Exclude:
     - 'vendor/**/*'
     - 'bin/**/*'
+  SuggestExtensions: false
 
 # and/&& or/|| should not be replaced!
 # http://www.virtuouscode.com/2010/08/02/using-and-and-or-in-ruby/

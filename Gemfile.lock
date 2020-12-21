@@ -67,9 +67,10 @@ GEM
 
 PLATFORMS
   ruby
+  x86_64-darwin-19
 
 DEPENDENCIES
-  bundler (~> 2.1.0)
+  bundler (~> 2.2.0)
   coveralls (~> 0.8.23)
   rake (~> 13.0.1)
   rspec-sonarqube-formatter!
@@ -78,4 +79,4 @@ DEPENDENCIES
   simplecov-json (~> 0.2.0)
 
 BUNDLED WITH
-   2.0.2
+   2.2.0

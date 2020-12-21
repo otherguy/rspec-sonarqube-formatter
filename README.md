@@ -93,7 +93,7 @@ Bug reports and pull requests are welcome on GitHub at [`otherguy/rspec-sonarqub
 After checking out the repository, you need to install dependencies:
 
 ```bash
-gem install bundler -v 2.0.2
+gem install bundler -v 2.2.0
 bundle install
 ```
 
