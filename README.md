@@ -35,7 +35,7 @@ Add the gem to your application's `Gemfile`:
 
 ```ruby
 # RSpec formatters
-gem 'rspec-sonarqube-formatter', '~> 1.4', require: false
+gem 'rspec-sonarqube-formatter', '~> 1.5', require: false
 ```
 
 Then, update your bundle:
