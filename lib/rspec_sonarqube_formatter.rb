@@ -3,6 +3,8 @@
 require 'htmlentities'
 
 class RspecSonarqubeFormatter
+  attr_reader :output
+
   ::RSpec::Core::Formatters.register self,
     :start, :stop, :example_group_started, :example_started, :example_passed, :example_failed, :example_pending
 
