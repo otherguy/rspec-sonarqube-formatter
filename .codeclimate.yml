@@ -14,6 +14,7 @@ plugins:
     exclude_patterns:
       - "documentation/"
       - "**/*.png"
+      - "Gemfile.lock"
   rubocop:
     enabled: true
     channel: beta
