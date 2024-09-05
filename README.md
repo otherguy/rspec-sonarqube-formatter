@@ -106,4 +106,4 @@ Releases are built from tags automatically and pushed to [RubyGems.org][rubygems
 [codecov]: https://app.codecov.io/gh/otherguy/rspec-sonarqube-formatter
 [codeclimate]: https://codeclimate.com/github/otherguy/rspec-sonarqube-formatter
 [sonarcloud]: https://sonarcloud.io/dashboard?id=otherguy_rspec-sonarqube-formatter
-[license]: https://github.com/otherguy/rspec-sonarqube-formatter/blob/master/LICENSE.md
+[license]: https://github.com/otherguy/rspec-sonarqube-formatter/blob/main/LICENSE.md
