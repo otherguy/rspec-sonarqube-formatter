@@ -60,7 +60,7 @@ jobs:
       - name: Install dependencies
         run: bundle install
       - name: Run linting
-        run: bundle exec rubocop
+        run: bundle exec rubocop --format progress --format json --out rubocop.json
       - name: Run tests
         run: bundle exec rspec
       # SonarCloud
@@ -80,3 +80,7 @@ jobs:
       - uses: paambaati/codeclimate-action@v9.0.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          debug: true
+          coverageLocations: |
+            coverage/coverage.json:simplecov
