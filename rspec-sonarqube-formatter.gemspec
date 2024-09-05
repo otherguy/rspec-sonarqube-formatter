@@ -16,8 +16,9 @@ Gem::Specification.new do |spec|
   spec.email         = ['alex@otherguy.uo']
 
   spec.metadata = {
-    'bug_tracker_uri' => 'https://github.com/otherguy/rspec-sonarqube-formatter/issues',
-    'source_code_uri' => 'https://github.com/otherguy/rspec-sonarqube-formatter'
+    'bug_tracker_uri'       => 'https://github.com/otherguy/rspec-sonarqube-formatter/issues',
+    'source_code_uri'       => 'https://github.com/otherguy/rspec-sonarqube-formatter',
+    'rubygems_mfa_required' => 'true'
   }
 
   spec.summary       = 'Generic test data formatter for SonarQube'
@@ -35,11 +36,4 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'htmlentities', '~> 4.3.3'
   spec.add_dependency 'rspec',        '~> 3.0'
-
-  spec.add_development_dependency 'bundler',        '~> 2.2.0'
-  spec.add_development_dependency 'coveralls',      '~> 0.8.23'
-  spec.add_development_dependency 'rake',           '~> 13.0.1'
-  spec.add_development_dependency 'rubocop',        '~> 1.50.2'
-  spec.add_development_dependency 'simplecov',      '~> 0.16.1'
-  spec.add_development_dependency 'simplecov-json', '~> 0.2.0'
 end

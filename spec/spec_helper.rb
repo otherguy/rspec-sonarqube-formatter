@@ -2,7 +2,7 @@
 
 require 'simplecov'
 require 'simplecov-json'
-require 'coveralls'
+require 'simplecov-html'
 
 # Generate HTML and JSON reports
 SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter.new([
@@ -14,8 +14,6 @@ SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start do
   track_files 'lib/**/*.rb'
 end
-
-Coveralls.wear!
 
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
