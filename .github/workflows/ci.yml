@@ -45,7 +45,7 @@ jobs:
       - name: Run linting
         run: bundle exec rubocop
       - name: Run tests
-        run: bundle exec rspec
+        run: bundle exec rspec spec
 
   # SonarCloud, Codecov, etc.
   external:
@@ -62,7 +62,7 @@ jobs:
       - name: Run linting
         run: bundle exec rubocop --format progress --format json --out rubocop.json
       - name: Run tests
-        run: bundle exec rspec
+        run: bundle exec rspec spec
       # SonarCloud
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
@@ -83,4 +83,4 @@ jobs:
         with:
           debug: true
           coverageLocations: |
-            coverage/coverage.json:simplecov
+            coverage/lcov.info:lcov

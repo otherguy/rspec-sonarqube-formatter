@@ -3,12 +3,19 @@
 require 'simplecov'
 require 'simplecov-json'
 require 'simplecov-html'
+require 'simplecov-lcov'
+
+SimpleCov::Formatter::LcovFormatter.config do |c|
+  c.single_report_path = 'coverage/lcov.info'
+  c.report_with_single_file = true
+end
 
 # Generate HTML and JSON reports
-SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter.new([
+SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
-  SimpleCov::Formatter::JSONFormatter
-])
+  SimpleCov::Formatter::JSONFormatter,
+  SimpleCov::Formatter::LcovFormatter
+]
 
 # Code coverage
 SimpleCov.start do
