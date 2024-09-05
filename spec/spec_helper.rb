@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'simplecov'
-require 'simplecov-json'
+require 'simplecov_json_formatter'
 require 'simplecov-html'
 require 'simplecov-lcov'
 
