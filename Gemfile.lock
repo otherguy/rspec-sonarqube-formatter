@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    rspec-sonarqube-formatter (1.0.0.pre.local)
-      htmlentities (~> 4.3.3)
+    rspec-sonarqube-formatter (1.5.2.pre)
+      htmlentities (~> 4.3)
       rspec (~> 3.0)
 
 GEM
