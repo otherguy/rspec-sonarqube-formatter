@@ -11,6 +11,9 @@ plugins:
     channel: stable
     config:
       editorconfig: .editorconfig
+    exclude_patterns:
+      - "documentation/"
+      - "**/*.png"
   rubocop:
     enabled: true
     channel: beta
