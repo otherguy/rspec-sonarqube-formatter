@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rspec-sonarqube-formatter (1.5.4.pre)
+    rspec-sonarqube-formatter (1.6.1.pre)
       htmlentities (~> 4.3)
       rspec (~> 3.0)
 
