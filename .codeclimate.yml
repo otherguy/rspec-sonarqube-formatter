@@ -5,7 +5,10 @@ plugins:
     enabled: true
   bundler-audit:
     enabled: true
+    channel: bundler-audit-0-9-1
   editorconfig:
     enabled: true
+    channel: beta
   rubocop:
     enabled: true
+    channel: beta
