@@ -19,7 +19,7 @@ Style/AndOr:
   EnforcedStyle: conditionals
 
 # Modern screens can easily display more than 80 characters.
-Metrics/LineLength:
+Layout/LineLength:
   Max: 250
 
 Metrics/BlockLength:
