@@ -47,9 +47,9 @@ jobs:
       - name: Run tests
         run: bundle exec rspec
 
-  # SonarCloud scan
-  sonarcloud:
-    name: SonarCloud
+  # SonarCloud, Codecov, etc.
+  external:
+    name: SonarCloud, Codecov and CodeClimate Analysis
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -63,6 +63,7 @@ jobs:
         run: bundle exec rubocop
       - name: Run tests
         run: bundle exec rspec
+      # SonarCloud
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
