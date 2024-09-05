@@ -15,9 +15,6 @@ SimpleCov.start do
   # ignore common ruby and ruby on rails files in test coverage
   add_filter 'Gemfile'
 
-  # Ignore Specs/tests themselves
-  add_filter 'spec'
-
   formatter SimpleCov::Formatter::MultiFormatter.new([
     SimpleCov::Formatter::HTMLFormatter,
     SimpleCov::Formatter::JSONFormatter,
