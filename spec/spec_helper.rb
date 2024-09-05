@@ -20,6 +20,7 @@ SimpleCov.formatters = [
 # Code coverage
 SimpleCov.start do
   track_files 'lib/**/*.rb'
+  enable_coverage :branch
 end
 
 $LOAD_PATH.unshift(File.dirname(__FILE__))
