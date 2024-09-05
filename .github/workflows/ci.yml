@@ -83,4 +83,4 @@ jobs:
         with:
           debug: true
           coverageLocations: |
-            coverage/.resulset.json:simplecov
+            coverage/coverage.json:simplecov
