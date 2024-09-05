@@ -1,0 +1,25 @@
+name: Publish Gem
+
+on:
+  workflow_run:
+    workflows: ["Ruby CI"]
+    release:
+      types:
+        - released
+    types:
+      - completed
+
+jobs:
+  build:
+    name: Build + Publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+      - name: Install dependencies
+        run: bundle install
