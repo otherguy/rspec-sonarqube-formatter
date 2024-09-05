@@ -30,7 +30,7 @@
 coverage
 test-report.xml
 .scannerwork
-rubocop.json
+rubocop-result.json
 .idea
 *.gem
 .bundle/

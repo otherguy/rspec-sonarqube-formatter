@@ -1,3 +1,7 @@
 {
-    "ruby.rubocop.useBundler": true
+    "ruby.rubocop.useBundler": true,
+    "sonarlint.connectedMode.project": {
+        "connectionId": "otherguy",
+        "projectKey": "otherguy_rspec-sonarqube-formatter"
+    }
 }
