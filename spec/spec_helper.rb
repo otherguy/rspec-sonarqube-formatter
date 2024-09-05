@@ -10,16 +10,24 @@ SimpleCov::Formatter::LcovFormatter.config do |c|
   c.report_with_single_file = true
 end
 
-# Generate HTML and JSON reports
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  SimpleCov::Formatter::JSONFormatter,
-  SimpleCov::Formatter::LcovFormatter
-]
-
 # Code coverage
 SimpleCov.start do
+  # ignore common ruby and ruby on rails files in test coverage
+  add_filter 'Gemfile'
+
+  # Ignore Specs/tests themselves
+  add_filter 'spec'
+
+  formatter SimpleCov::Formatter::MultiFormatter.new([
+    SimpleCov::Formatter::HTMLFormatter,
+    SimpleCov::Formatter::JSONFormatter,
+    SimpleCov::Formatter::LcovFormatter
+  ])
+
+  # Track Ruby files
   track_files 'lib/**/*.rb'
+
+  # Enable branch coverage
   enable_coverage :branch
 end
 
@@ -37,7 +45,7 @@ RSpec.configure do |config|
   config.filter_run_excluding :exclude
 
   # Raise errors for deprecated interfaces
-  # config.raise_errors_for_deprecations!
+  config.raise_errors_for_deprecations!
 
   # Disable RSpec exposing methods globally on `Module` and `main`
   config.disable_monkey_patching!
