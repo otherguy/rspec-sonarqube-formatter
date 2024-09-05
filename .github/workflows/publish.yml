@@ -35,3 +35,4 @@ jobs:
         with:
           commit_message: Update version
           file_pattern: '*.gemspec Gemfile.lock'
+          branch: main
