@@ -9,11 +9,16 @@ on:
   pull_request:
     branches:
       - main
+    types:
+      - opened
+      - synchronize
+      - reopened
   release:
     types:
       - published
 
 jobs:
+  # Test and Lint
   test:
     runs-on: ${{ matrix.os }}-latest
 
@@ -41,3 +46,17 @@ jobs:
         run: bundle exec rubocop
       - name: Run tests
         run: bundle exec rspec
+
+  # SonarCloud scan
+  sonarcloud:
+    name: SonarCloud
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
