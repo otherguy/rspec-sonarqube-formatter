@@ -63,22 +63,6 @@ jobs:
         run: bundle exec rubocop --format progress --format json --out rubocop-result.json
       - name: Run tests
         run: bundle exec rspec spec
-      - name: Set version in sonar-project.properties
-        run: sed -i -e "s/sonar.projectVersion=.*$/sonar.projectVersion=$(bundle exec rake version)/g" sonar-project.properties
-      - name: Relativize Paths
-        run: |
-          sed -i -e "s#$(pwd)/#/github/workspace/#g" coverage/coverage.json
-          cat coverage/coverage.json
-      # SonarCloud
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v3.0.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_SCANNER_JAVA_OPTS: '--add-opens java.base/sun.nio.ch=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED'
-        with:
-          args: >
-            -Dsonar.verbose=false
       # Codecov
       - uses: codecov/codecov-action@v4
         with:
@@ -94,3 +78,20 @@ jobs:
           debug: true
           coverageLocations: |
             coverage/lcov.info:lcov
+      # Update version for SonarCloud
+      - name: Set version in sonar-project.properties
+        run: sed -i -e "s/sonar.projectVersion=.*$/sonar.projectVersion=$(bundle exec rake version)/g" sonar-project.properties
+      # Fix paths for SonarCloud, because it uses a different container
+      - name: Fix paths for SonarCloud
+        run: |
+          sed -i -e "s#$(pwd)/#/github/workspace/#g" coverage/coverage.json
+      # SonarCloud
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v3.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_SCANNER_JAVA_OPTS: '--add-opens java.base/sun.nio.ch=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED'
+        with:
+          args: >
+            -Dsonar.verbose=false
