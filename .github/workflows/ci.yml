@@ -67,7 +67,7 @@ jobs:
         run: sed -i -e "s/sonar.projectVersion=.*$/sonar.projectVersion=$(bundle exec rake version)/g" sonar-project.properties
       - name: Relativize Paths
         run: |
-          sed -i -e "s#$(pwd)/##g" coverage/coverage.json
+          sed -i -e "s#$(pwd)/#/github/workspace/#g" coverage/coverage.json
           cat coverage/coverage.json
       # SonarCloud
       - name: SonarCloud Scan
