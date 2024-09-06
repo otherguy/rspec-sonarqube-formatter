@@ -12,7 +12,7 @@ task :version, [:version] do |_task, args|
   current_version = spec.version.to_s
 
   if args[:version].nil?
-    puts "Version: #{current_version}"
+    puts current_version
     exit 0
   end
 

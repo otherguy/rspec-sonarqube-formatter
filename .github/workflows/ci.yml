@@ -63,12 +63,25 @@ jobs:
         run: bundle exec rubocop --format progress --format json --out rubocop-result.json
       - name: Run tests
         run: bundle exec rspec spec
+      - name: Set version in sonar-project.properties
+        run: sed -i -e "s/sonar.projectVersion=.*$/sonar.projectVersion=$(bundle exec rake version)/g" sonar-project.properties
+      - name: DEBUG
+        run: |
+          cat sonar-project.properties
+          pwd
+          ls -al /home/runner/work/rspec-sonarqube-formatter/rspec-sonarqube-formatter/spec/rspec_sonarqube_formatter_spec.rb
+          ls -al /home/runner/work/
+          ls -al
       # SonarCloud
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+        uses: SonarSource/sonarcloud-github-action@v3.0.0
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_SCANNER_OPTS: "--add-opens java.base/sun.nio.ch=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED"
+        with:
+          args: >
+            -Dsonar.verbose=true
       # Codecov
       - uses: codecov/codecov-action@v4
         with:
