@@ -67,11 +67,7 @@ jobs:
         run: sed -i -e "s/sonar.projectVersion=.*$/sonar.projectVersion=$(bundle exec rake version)/g" sonar-project.properties
       - name: DEBUG
         run: |
-          cat sonar-project.properties
           pwd
-          ls -al /home/runner/work/rspec-sonarqube-formatter/rspec-sonarqube-formatter/spec/rspec_sonarqube_formatter_spec.rb
-          ls -al /home/runner/work/
-          ls -al
       # SonarCloud
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v3.0.0
@@ -82,7 +78,6 @@ jobs:
         with:
           args: >
             -Dsonar.verbose=false
-            -Dsonar.projectBaseDir=/home/runner/work/rspec-sonarqube-formatter/rspec-sonarqube-formatter
       # Codecov
       - uses: codecov/codecov-action@v4
         with:
