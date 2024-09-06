@@ -65,9 +65,10 @@ jobs:
         run: bundle exec rspec spec
       - name: Set version in sonar-project.properties
         run: sed -i -e "s/sonar.projectVersion=.*$/sonar.projectVersion=$(bundle exec rake version)/g" sonar-project.properties
-      - name: DEBUG
+      - name: Relativize Paths
         run: |
-          pwd
+          sed -i -e "s#$(pwd)/##g" coverage/coverage.json
+          cat coverage/coverage.json
       # SonarCloud
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v3.0.0
