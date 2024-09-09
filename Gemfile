@@ -12,7 +12,7 @@ group :development, :test do
   gem 'rake',           '~> 13.2'
   gem 'rubocop',        '~> 1.66'
   gem 'simplecov',      '~> 0.22'
-  gem 'simplecov-html', '~> 0.12'
+  gem 'simplecov-html', '~> 0.13'
   gem 'simplecov-json', '~> 0.2'
   gem 'simplecov-lcov', '~> 0.8'
 end
