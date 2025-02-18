@@ -6,7 +6,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 Gem::Specification.new do |spec|
   spec.name = 'rspec-sonarqube-formatter'
 
-  spec.version  = '1.6.4.pre'
+  spec.version  = '1.6.5.pre'
   spec.platform = Gem::Platform::RUBY
   spec.authors  = ['Alexander Graf']
   spec.email    = ['alex@otherguy.uo']
