@@ -10,7 +10,7 @@ gemspec
 group :development, :test do
   gem 'bundler',        '~> 2.5'
   gem 'rake',           '~> 13.2'
-  gem 'rubocop',        '~> 1.75'
+  gem 'rubocop',        '~> 1.76'
   gem 'simplecov',      '~> 0.22'
   gem 'simplecov-html', '~> 0.13'
   gem 'simplecov-json', '~> 0.2'
