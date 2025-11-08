@@ -8,14 +8,15 @@ class RspecSonarqubeFormatter
   ::RSpec::Core::Formatters.register self,
     :start, :stop, :example_group_started, :example_started, :example_passed, :example_failed, :example_pending
 
-  def initialize(output)
+  def initialize(output, xml_declaration: false)
     @output             = output
+    @xml_declaration    = xml_declaration
     @current_file       = ''
     @last_failure_index = 0
   end
 
   def start(_notification)
-    @output.puts '<?xml version="1.0" encoding="UTF-8"?>'
+    @output.puts '<?xml version="1.0" encoding="UTF-8"?>' if @xml_declaration
     @output.puts '<testExecutions version="1">'
   end
 
@@ -54,7 +55,17 @@ class RspecSonarqubeFormatter
   end
 
   def clean_string(input)
-    HTMLEntities.new.encode input.to_s.gsub(/\e\[\d;*\d*m/, '').tr('"', "'")
+    # Convert to string and remove ANSI color codes
+    cleaned = input.to_s.gsub(/\e\[\d;*\d*m/, '')
+
+    # Convert any curly/smart quotes to straight quotes to prevent XML parsing issues
+    # U+201C ("), U+201D ("), U+201E („) - various double quotes
+    cleaned = cleaned.gsub(/[\u201C\u201D\u201E]/, '"')
+    # U+2018 ('), U+2019 ('), U+201A (‚) - various single quotes
+    cleaned = cleaned.gsub(/[\u2018\u2019\u201A]/, "'")
+
+    # Encode using named HTML entities (&quot;, &apos;, &lt;, &gt;, &amp;)
+    HTMLEntities.new.encode(cleaned, :named)
   end
 
   def duration(example)
