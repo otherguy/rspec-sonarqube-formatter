@@ -32,4 +32,5 @@ rubocop-result.json
 .idea
 *.gem
 .bundle/
+bin/
 pkg/*
