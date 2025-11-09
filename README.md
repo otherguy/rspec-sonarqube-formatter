@@ -11,7 +11,7 @@
 [![Sonar Tests](https://img.shields.io/sonar/tests/otherguy_rspec-sonarqube-formatter?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge&logo=sonarcloud&logoColor=aaa)][sonar-tests]
 [![Sonar Quality Gate](https://img.shields.io/sonar/quality_gate/otherguy_rspec-sonarqube-formatter?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge&logo=sonarcloud&logoColor=aaa)][sonarcloud]
 [![Violations](https://img.shields.io/sonar/violations/otherguy_rspec-sonarqube-formatter?server=https%3A%2F%2Fsonarcloud.io&format=short&style=for-the-badge&logo=sonarcloud&logoColor=aaa)][sonarcloud]
-[![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/otherguy/rspec-sonarqube-formatter?style=for-the-badge&logo=codeclimate)][codeclimate]
+[![Qlty coverage](https://img.shields.io/badge/qlty-coverage-blue?style=for-the-badge)][qlty]
 
 
 ## Features 🌈
@@ -105,7 +105,7 @@ Releases are built from tags automatically and pushed to [RubyGems.org][rubygems
 [rubygems]: https://rubygems.org/gems/rspec-sonarqube-formatter
 [issues]: https://github.com/otherguy/rspec-sonarqube-formatter/issues
 [codecov]: https://app.codecov.io/gh/otherguy/rspec-sonarqube-formatter
-[codeclimate]: https://codeclimate.com/github/otherguy/rspec-sonarqube-formatter
+[qlty]: https://qlty.sh
 [sonarcloud]: https://sonarcloud.io/dashboard?id=otherguy_rspec-sonarqube-formatter
 [sonar-tests]: https://sonarcloud.io/component_measures?metric=tests&view=list&id=otherguy_rspec-sonarqube-formatter
 [license]: https://github.com/otherguy/rspec-sonarqube-formatter/blob/main/LICENSE.md

@@ -49,8 +49,11 @@ jobs:
 
   # SonarCloud, Codecov, etc.
   external:
-    name: SonarCloud, Codecov and CodeClimate Analysis
+    name: SonarCloud, Codecov and Qlty Analysis
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write  # Required for OIDC authentication with Qlty
+      contents: read
     steps:
       - uses: actions/checkout@v4
         with:
@@ -70,14 +73,11 @@ jobs:
           verbose: true
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      # CodeClimate
-      - uses: paambaati/codeclimate-action@v9.0.0
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+      # Qlty Coverage
+      - uses: qltysh/qlty-action/coverage@v1
         with:
-          debug: true
-          coverageLocations: |
-            coverage/lcov.info:lcov
+          coverage_file: coverage/coverage.json
+          oidc: true
       # Update version for SonarCloud
       - name: Set version in sonar-project.properties
         run: sed -i -e "s/sonar.projectVersion=.*$/sonar.projectVersion=$(bundle exec rake version)/g" sonar-project.properties
