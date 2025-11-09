@@ -47,9 +47,9 @@ jobs:
       - name: Run tests
         run: bundle exec rspec spec
 
-  # SonarCloud, Codecov, etc.
+  # SonarQube, Codecov, etc.
   external:
-    name: SonarCloud, Codecov and Qlty Analysis
+    name: SonarQube, Codecov and Qlty Analysis
     runs-on: ubuntu-latest
     permissions:
       id-token: write  # Required for OIDC authentication with Qlty
@@ -78,20 +78,19 @@ jobs:
         with:
           coverage_file: coverage/coverage.json
           oidc: true
-      # Update version for SonarCloud
+      # Update version for SonarQube
       - name: Set version in sonar-project.properties
         run: sed -i -e "s/sonar.projectVersion=.*$/sonar.projectVersion=$(bundle exec rake version)/g" sonar-project.properties
-      # Fix paths for SonarCloud, because it uses a different container
-      - name: Fix paths for SonarCloud
+      # Fix paths for SonarQube, because it uses a different container
+      - name: Fix paths for SonarQube
         run: |
           sed -i -e "s#$(pwd)/#/github/workspace/#g" coverage/coverage.json
-      # SonarCloud
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v5.0.0
+      # SonarQube
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v4.1.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_SCANNER_JAVA_OPTS: '--add-opens java.base/sun.nio.ch=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED'
         with:
           args: >
             -Dsonar.verbose=false
