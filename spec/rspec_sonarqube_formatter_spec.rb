@@ -187,7 +187,7 @@ RSpec.describe RspecSonarqubeFormatter, type: :helper do
     let(:formatter) { RspecSonarqubeFormatter.new(StringIO.new) }
 
     it 'converts curly double quotes to straight quotes then encodes them' do
-      # Using Unicode escape sequences: \u201C = " and \u201D = "
+      # Using Unicode escape sequences: \u201C = “ (left double quotation mark), \u201D = ” (right double quotation mark)
       input = "\u201Ccurly\u201D quotes"
       result = formatter.clean_string(input)
 
