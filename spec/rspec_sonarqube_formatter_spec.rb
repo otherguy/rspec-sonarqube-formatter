@@ -199,7 +199,7 @@ RSpec.describe RspecSonarqubeFormatter, type: :helper do
     end
 
     it 'converts curly single quotes to straight quotes then encodes them' do
-      # Using Unicode escape sequences: \u2018 = ' and \u2019 = '
+      # Using Unicode escape sequences: \u2018 = ‘ (left single quotation mark) and \u2019 = ’ (right single quotation mark)
       input = "\u2018curly\u2019 quotes"
       result = formatter.clean_string(input)
 
