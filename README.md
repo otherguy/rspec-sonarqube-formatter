@@ -11,7 +11,7 @@
 [![Sonar Tests](https://img.shields.io/sonar/tests/otherguy_rspec-sonarqube-formatter?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge&logo=sonarcloud&logoColor=aaa)][sonar-tests]
 [![Sonar Quality Gate](https://img.shields.io/sonar/quality_gate/otherguy_rspec-sonarqube-formatter?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge&logo=sonarcloud&logoColor=aaa)][sonarcloud]
 [![Violations](https://img.shields.io/sonar/violations/otherguy_rspec-sonarqube-formatter?server=https%3A%2F%2Fsonarcloud.io&format=short&style=for-the-badge&logo=sonarcloud&logoColor=aaa)][sonarcloud]
-[![Qlty coverage](https://img.shields.io/badge/qlty-coverage-blue?style=for-the-badge)][qlty]
+[![Qlty coverage](https://img.shields.io/badge/dynamic/json?url=https://api.qlty.io/v1/projects/otherguy/rspec-sonarqube-formatter/coverage&label=qlty%20coverage&query=$.coverage&suffix=%25&color=blue&style=for-the-badge)][qlty]
 
 
 ## Features 🌈
